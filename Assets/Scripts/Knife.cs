@@ -10,10 +10,19 @@ public class Knife : MonoBehaviour
     bool isMoving = false;
     public float hitDamage;
     public Wood wood;
+    public ParticleSystem woodParticles;
+
+    ParticleSystem.EmissionModule woodParticlesEmission;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        woodParticlesEmission = woodParticles.emission;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        woodParticlesEmission.enabled = false;
     }
 
     private void Update()
@@ -42,9 +51,11 @@ public class Knife : MonoBehaviour
         ColliderObj c = collision.collider.GetComponent<ColliderObj>();
         if(c != null)
         {
+            woodParticlesEmission.enabled = true;
+            woodParticles.transform.position = collision.contacts[0].point;
+
             c.HitCollider(hitDamage);
             wood.Hit(c.index, hitDamage);
-            Debug.Log("Calling for index " + c.index);
         }
     }
 }
