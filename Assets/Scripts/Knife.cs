@@ -12,18 +12,23 @@ public class Knife : MonoBehaviour
     public Wood wood;
     public ParticleSystem woodParticles;
 
+    public Vector3 initialPos;
+
     ParticleSystem.EmissionModule woodParticlesEmission;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         woodParticlesEmission = woodParticles.emission;
+        initialPos = transform.position;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
         woodParticlesEmission.enabled = false;
+
     }
+
 
     private void Update()
     {
@@ -46,6 +51,20 @@ public class Knife : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        ColliderObj c = other.GetComponent<ColliderObj>();
+        if (c != null)
+        {
+            woodParticlesEmission.enabled = true;
+            //woodParticles.transform.position = collision.contacts[0].point;
+
+            c.HitCollider(hitDamage);
+            wood.Hit(c.index, hitDamage);
+        }
+    }
+
+    /*
     private void OnCollisionStay(Collision collision)
     {
         ColliderObj c = collision.collider.GetComponent<ColliderObj>();
@@ -58,4 +77,5 @@ public class Knife : MonoBehaviour
             wood.Hit(c.index, hitDamage);
         }
     }
+    */
 }

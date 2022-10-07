@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject showcasePanel;
 
     public GameObject gameElements;
+    public GameObject knife;
 
     [HideInInspector] public GameObject showcaseModel = null;
 
@@ -66,7 +67,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetWood()
     {
-        SkinnedMeshRenderer renderer= woodModel.GetComponent<SkinnedMeshRenderer>();
+        knife.transform.position = knife.GetComponent<Knife>().initialPos;
+
+        SkinnedMeshRenderer renderer = woodModel.GetComponent<SkinnedMeshRenderer>();
         Mesh r = renderer.sharedMesh;
 
         for (int i = 0; i < r.blendShapeCount; i++)
@@ -75,6 +78,8 @@ public class GameManager : MonoBehaviour
             colliders[i].size = new Vector3(colliders[i].size.x,
                 defaultColliderHeight, colliders[i].size.z);
         }
+
+
     }
 
     public void ListSavedPotteriesBtn()
