@@ -8,6 +8,8 @@ public class Knife : MonoBehaviour
     Rigidbody rb;
     Vector3 movementVector;
     bool isMoving = false;
+    public float hitDamage;
+    public Wood wood;
 
     private void Start()
     {
@@ -35,4 +37,14 @@ public class Knife : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        ColliderObj c = collision.collider.GetComponent<ColliderObj>();
+        if(c != null)
+        {
+            c.HitCollider(hitDamage);
+            wood.Hit(c.index, hitDamage);
+            Debug.Log("Calling for index " + c.index);
+        }
+    }
 }
