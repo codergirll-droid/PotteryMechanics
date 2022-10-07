@@ -11,10 +11,21 @@ public class SaveManager : MonoBehaviour
 
     public GameObject woodPrefab;
 
-   // public static List<Wood> potteries = new List<Wood>(); //should add wood to the list 
-                                                           //everytime save clicked  ----- SaveManager.potteries.Add(this);
-
+    public List<WoodData> potteryDatas = new List<WoodData>(); 
     Wood wood;
+
+    public static SaveManager Instance;
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -58,6 +69,9 @@ public class SaveManager : MonoBehaviour
 
     public void LoadPottery()
     {
+        potteryDatas = null;
+        potteryDatas = new List<WoodData>();
+
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + POTTERY_SUB;
         string countPath = Application.persistentDataPath + POTTERY_COUNT_SUB;
@@ -87,10 +101,12 @@ public class SaveManager : MonoBehaviour
 
                 //instantiate pottery here
 
-                int materialIndex = data.woodMaterialIndex;
-                float[] blendShapeValues = data.blendShapeValues;
+                potteryDatas.Add(data);
 
-                CreatePottery(materialIndex, blendShapeValues);
+                //int materialIndex = data.woodMaterialIndex;
+                //float[] blendShapeValues = data.blendShapeValues;
+
+                //CreatePottery(materialIndex, blendShapeValues);
 
             }
             else
@@ -103,9 +119,13 @@ public class SaveManager : MonoBehaviour
         
     }
 
-    void CreatePottery(int materialIndex, float[] blendShapeValues) 
+    public void CreatePottery(GameObject obj) 
     {
-        GameObject newWood = Instantiate(woodPrefab, new Vector3(10, 10, 10), Quaternion.identity);
+        int dataIndex = obj.transform.GetSiblingIndex();
+        int materialIndex = potteryDatas[dataIndex].woodMaterialIndex;
+        float[] blendShapeValues = potteryDatas[dataIndex].blendShapeValues;
+
+        GameObject newWood = Instantiate(woodPrefab, Vector3.zero, Quaternion.Euler(-90, 0, 0));
         SkinnedMeshRenderer renderer = newWood.GetComponent<SkinnedMeshRenderer>();
         renderer.material = GameManager.Instance.woodMaterials[materialIndex];
 
@@ -117,6 +137,9 @@ public class SaveManager : MonoBehaviour
 
         }
 
+        GameManager.Instance.showcaseModel = newWood;
+        GameManager.Instance.listPanel.SetActive(false);
+        GameManager.Instance.showcasePanel.SetActive(true);
     }
 
 }

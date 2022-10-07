@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,15 @@ public class GameManager : MonoBehaviour
     float defaultColliderHeight = 2.022196f;
     BoxCollider[] colliders;
     public Wood woodScript;
+    public GameObject savedPotteryBtnPrefab;
+    public GameObject contentParent;
+    public GameObject listPanel;
+    public GameObject gamePanel;
+    public GameObject showcasePanel;
+
+    public GameObject gameElements;
+
+    [HideInInspector] public GameObject showcaseModel = null;
 
     public static GameManager Instance;
     private void Awake()
@@ -67,4 +77,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ListSavedPotteriesBtn()
+    {
+        listPanel.SetActive(true);
+        gamePanel.SetActive(false);
+        gameElements.SetActive(false);
+
+        SaveManager.Instance.LoadPottery();
+
+        for (int i = 0; i < contentParent.transform.childCount; i++)
+        {
+            Destroy(contentParent.transform.GetChild(i).gameObject);
+            Debug.Log("destroying");
+        }
+
+        for (int i = 0; i < SaveManager.Instance.potteryDatas.Count; i++)
+        {
+            Debug.Log("creating");
+            GameObject btn = Instantiate(savedPotteryBtnPrefab, contentParent.transform);
+            btn.GetComponent<Button>().onClick.AddListener(delegate { SaveManager.Instance.CreatePottery(btn); });
+        }
+
+    }
+
+    public void BackToGameFromShowcaseBtn()
+    {
+        Destroy(showcaseModel);
+        showcasePanel.SetActive(false);
+
+        listPanel.SetActive(true);
+    }
+
+    public void CloseListPanelBtn()
+    {
+        listPanel.SetActive(false);
+        gamePanel.SetActive(true);
+        gameElements.SetActive(true);
+    }
 }
