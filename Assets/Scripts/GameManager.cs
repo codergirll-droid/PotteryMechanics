@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameElements;
     public GameObject knife;
 
+    public ColliderObj[] colliderObjects;
+
     [HideInInspector] public GameObject showcaseModel = null;
 
     public static GameManager Instance;
@@ -40,8 +42,6 @@ public class GameManager : MonoBehaviour
         int randomMat = Random.Range(0, woodMaterials.Length);
         woodMaterialIndex = randomMat;
         SetWoodMaterial(randomMat);
-
-        ColliderObj[] colliderObjects = FindObjectsOfType<ColliderObj>();
 
         colliders = new BoxCollider[colliderObjects.Length];
         for (int i = 0; i < colliderObjects.Length; i++)

@@ -125,7 +125,7 @@ public class SaveManager : MonoBehaviour
         int materialIndex = potteryDatas[dataIndex].woodMaterialIndex;
         float[] blendShapeValues = potteryDatas[dataIndex].blendShapeValues;
 
-        GameObject newWood = Instantiate(woodPrefab, Vector3.zero, Quaternion.Euler(-90, 0, 0));
+        GameObject newWood = Instantiate(woodPrefab, Vector3.zero, Quaternion.Euler(-90, 180, 0));
         SkinnedMeshRenderer renderer = newWood.GetComponent<SkinnedMeshRenderer>();
         renderer.material = GameManager.Instance.woodMaterials[materialIndex];
 

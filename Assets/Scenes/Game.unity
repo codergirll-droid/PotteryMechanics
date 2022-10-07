@@ -2654,6 +2654,29 @@ MonoBehaviour:
   showcasePanel: {fileID: 694652503}
   gameElements: {fileID: 1586756700}
   knife: {fileID: 1382215755}
+  colliderObjects:
+  - {fileID: 1611415824}
+  - {fileID: 2073399203}
+  - {fileID: 90173584}
+  - {fileID: 1532017929}
+  - {fileID: 836365781}
+  - {fileID: 1824109169}
+  - {fileID: 799764806}
+  - {fileID: 1156743848}
+  - {fileID: 376432651}
+  - {fileID: 2092971347}
+  - {fileID: 2118863575}
+  - {fileID: 250860923}
+  - {fileID: 72617791}
+  - {fileID: 221858516}
+  - {fileID: 877394020}
+  - {fileID: 1723160130}
+  - {fileID: 457963031}
+  - {fileID: 769830434}
+  - {fileID: 822855124}
+  - {fileID: 1510903637}
+  - {fileID: 396114514}
+  - {fileID: 14817402}
   showcaseModel: {fileID: 0}
 --- !u!114 &1269727255
 MonoBehaviour:
@@ -3073,7 +3096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a145b2454e9e7d5408cfc5cb59a07ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 20
+  movementSpeed: 5
   hitDamage: 0.03
   wood: {fileID: 175192416}
   woodParticles: {fileID: 399189853}
