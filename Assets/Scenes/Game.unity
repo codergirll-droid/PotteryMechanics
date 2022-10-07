@@ -2013,7 +2013,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1168489802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1269727254}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ChangeWoodMaterial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1168489802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,6 +2166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1269727253}
+  - component: {fileID: 1269727254}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2169,12 +2182,66 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269727252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4448412, y: 0.47799188, z: -2.5280576}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269727254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269727252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4921f978f95d8249928f706d4cd76e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  woodMaterials:
+  - {fileID: 2100000, guid: f088e83810086dd47ab9a9718144ed37, type: 2}
+  - {fileID: 2100000, guid: ca6a2771d00019e4eba3d3b1386215a3, type: 2}
+  - {fileID: 2100000, guid: f9ab68b7517ed34488cdbbbf976b7ffd, type: 2}
+  - {fileID: 2100000, guid: 1705db4e7c5e95047b66293086e5a7ab, type: 2}
+  - {fileID: 2100000, guid: ca309c5926d65b34ab5267404b8debd8, type: 2}
+  - {fileID: 2100000, guid: 5cd89167416b68048802338ad9219ab9, type: 2}
+  - {fileID: 2100000, guid: 0f3f7bfbfc24fd245971f1b42199cff2, type: 2}
+  - {fileID: 2100000, guid: db9e9e97d836e4c4ba6e23a8bb59df7f, type: 2}
+  - {fileID: 2100000, guid: 5d027e838ac6db348980898c93402db5, type: 2}
+  - {fileID: 2100000, guid: b87dc3dede67df143a45b6bc35d1979a, type: 2}
+  - {fileID: 2100000, guid: e7eaac3929b974541b3ecb4c9852e905, type: 2}
+  - {fileID: 2100000, guid: 095381322c7ac724b8b6ff356f04929a, type: 2}
+  - {fileID: 2100000, guid: 33e524b2c7c45cb4598e3eb143efc76f, type: 2}
+  - {fileID: 2100000, guid: 261fc6ba388fdea42b200193b2187175, type: 2}
+  - {fileID: 2100000, guid: f4caa11616ecb9041b459a020c575a12, type: 2}
+  - {fileID: 2100000, guid: 84f36545290558b4999deaf40861d198, type: 2}
+  - {fileID: 2100000, guid: ebce2ab4039f332449bc802002d88e5c, type: 2}
+  - {fileID: 2100000, guid: 7c471337ec1659946ab9cc546d0dfb3c, type: 2}
+  - {fileID: 2100000, guid: 6e68f052b7d3c5b418f26a88b5b38de6, type: 2}
+  - {fileID: 2100000, guid: c29d4d79c18e3284e8d85d2266d72b27, type: 2}
+  - {fileID: 2100000, guid: 3f2d233aa8a002c4b82838100e97bc2d, type: 2}
+  - {fileID: 2100000, guid: 2c011bc6a500920428e8b1665bc28253, type: 2}
+  - {fileID: 2100000, guid: 9b7535e1ed5c95141ae45579896325ab, type: 2}
+  - {fileID: 2100000, guid: 5f3f1bb388690874fbed5485250640dc, type: 2}
+  - {fileID: 2100000, guid: 0a366e5a36fbbc849ba636dde51beea3, type: 2}
+  - {fileID: 2100000, guid: bf4d0317d916c494f869f9d8d88aa680, type: 2}
+  - {fileID: 2100000, guid: 63df64019e65f7c4ab13dda27a395b1d, type: 2}
+  - {fileID: 2100000, guid: 6ba5b71cd3a2ff44ea97364fdf9e0dbd, type: 2}
+  - {fileID: 2100000, guid: 1dedd3a98ead5b24dacbf0b626391b57, type: 2}
+  - {fileID: 2100000, guid: bef0a68cde57f9446973c9f63186f13d, type: 2}
+  - {fileID: 2100000, guid: 8935d128230deb944bfbe7b1fdf560a4, type: 2}
+  - {fileID: 2100000, guid: 38f75374bead5b1469754164c250a036, type: 2}
+  - {fileID: 2100000, guid: e02320e1a3670da40bf1404eb0c1b9ad, type: 2}
+  - {fileID: 2100000, guid: d14063bb02a31fa4eb8be45b7eb3771e, type: 2}
+  - {fileID: 2100000, guid: d4dd9fc72c1015443979ccf1617ed3f1, type: 2}
+  - {fileID: 2100000, guid: b5554106d0493a44db3e767036d87a1b, type: 2}
+  - {fileID: 2100000, guid: 2d1d538e5671f6246bcec75bb22fb572, type: 2}
+  - {fileID: 2100000, guid: 9188b3e8b3ae59b46a111e8a47a13a00, type: 2}
+  - {fileID: 2100000, guid: 521403030cac0b84e8740f04dc03b26a, type: 2}
+  - {fileID: 2100000, guid: e690920fd598bbc43a9912cba6507ccf, type: 2}
+  woodModel: {fileID: 1280516592}
 --- !u!1001 &1280516590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2319,6 +2386,11 @@ PrefabInstance:
 --- !u!4 &1280516591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 029621b346d493148a7ffe1fe061d0a7, type: 3}
+  m_PrefabInstance: {fileID: 1280516590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1280516592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 029621b346d493148a7ffe1fe061d0a7, type: 3}
   m_PrefabInstance: {fileID: 1280516590}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1382215755
@@ -2851,7 +2923,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1566102424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1269727254}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResetWood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1566102424
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,9 +6,20 @@ public class Wood : MonoBehaviour
 {
     public float rotateSpeed = 10f;
     SkinnedMeshRenderer skinnedMeshRenderer;
+    public int woodMaterialIndex;
 
+    public static Wood Instance;
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
     }
 
