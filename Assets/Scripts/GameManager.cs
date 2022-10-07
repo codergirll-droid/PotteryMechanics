@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     int woodMaterialIndex = 0;
     float defaultColliderHeight = 2.022196f;
     BoxCollider[] colliders;
-    Wood woodScript;
+    public Wood woodScript;
 
     public static GameManager Instance;
     private void Awake()
@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
             colliders[i] = colliderObjects[i].gameObject.GetComponent<BoxCollider>();
         }
 
-        woodScript = Wood.Instance;
         woodScript.woodMaterialIndex = woodMaterialIndex;
     }
 
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void SetWoodMaterial(int materialIndex)
+    public void SetWoodMaterial(int materialIndex)
     {
         woodModel.GetComponent<SkinnedMeshRenderer>().material = woodMaterials[materialIndex];
         woodScript.woodMaterialIndex = materialIndex;

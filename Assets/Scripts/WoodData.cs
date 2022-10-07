@@ -5,14 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public class WoodData
 {
-    int woodMaterialIndex;
-    float[] blendShapeValues;
+    public int woodMaterialIndex;
+    public float[] blendShapeValues;
 
     public WoodData(Wood wood)
     {
         woodMaterialIndex = wood.woodMaterialIndex;
 
-        SkinnedMeshRenderer renderer = wood.GetComponent<SkinnedMeshRenderer>();
+        SkinnedMeshRenderer renderer = wood.GetComponentInChildren<SkinnedMeshRenderer>();
         Mesh r = renderer.sharedMesh;
         blendShapeValues = new float[r.blendShapeCount];
 
